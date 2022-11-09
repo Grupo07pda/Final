@@ -3,13 +3,13 @@ const Sequelize = require('sequelize');
 
 if(process.env.ENVIRONMENT ==="pet"){
     const sequelize= new Sequelize(
-        process.env.DATABASE_NAME,
-        Process.env.DATABASE_USERNAME,
-        process.env.DATABASE_PASSWORD,
+        'pet' ,
+        'root',
+        '',
         {
             dialect:'mysql',
-            host:process.env.DATABASE_HOST,
-            port: process.env.DATABASE_PORT,
+            host:'localhost',
+            port: 3306,
 
         }
     );
@@ -20,9 +20,13 @@ if(process.env.ENVIRONMENT ==="pet"){
         process.env.DATABASE_USERNAME_TESTE,
         process.env.DATABASE_PASSWORD_TESTE,
         {
-            dialect:'mysql',
+            dialect:'postgres',
             host:process.env.DATABASE_HOST_TESTE,
             port: process.env.DATABASE_PORT_TESTE,
+            dialectOptions: {
+                ssl: true,
+                native:true
+              }
 
         }
     );

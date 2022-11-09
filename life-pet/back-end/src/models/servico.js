@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../connection/db');
-
+const usuario = require("./usuario")
 
 const servico = db.define('servicos',{
     
@@ -44,5 +44,21 @@ const servico = db.define('servicos',{
     }
 
 })
+
+
+// Um usuário tem muitos serviços
+// Um serviço pertence a um usuário
+
+servico.belongsTo(usuario,{
+    constraint: true,
+    foreignKey: "idUsuario"  
+})
+
+usuario.hasMany(servico,{
+    constraint: true,
+    foreignKey: "idUsuario"    
+})
+
+
 
 module.exports = servico;

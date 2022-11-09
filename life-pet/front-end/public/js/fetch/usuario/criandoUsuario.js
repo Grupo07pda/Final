@@ -25,17 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(res => res.json())
     .then(res => {console.log(res);
+
+        if(res.mensagemError){
+            alertUsuario((`${res.mensagemError}`), "error" ,"Tente novamente")
+        }
         const usuarios = res.user
         if(usuarios){
-            window.alert("Cadastro com sucesso, faça o login e continue.")
+            alertUsuario("Cadastrado com sucesso", "success", "Faça o login e continue.")
             localStorage.setItem("user_id", usuarios.id)
             localStorage.setItem("user_nome",usuarios.nome)
             localStorage.setItem("user_email", usuarios.email)
-            window.alert("Cadastro com sucesso, faça o login e continue")
-        }else{
-            window.alert("Cadastro falhou, tente mais tarde!!!")
-         }
+            
+        }
 
     })
     
  }
+
+function alertUsuario(title, icon, text){
+    swal({
+        title: title,
+        text: text,
+        icon: icon,
+        button: "ok!",
+      });
+}

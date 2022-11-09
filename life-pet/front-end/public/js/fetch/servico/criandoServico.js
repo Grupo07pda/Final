@@ -20,17 +20,9 @@ async function criando(){
     const inputdata = document.getElementById("data");
     const data =inputdata.value;
 
-    console.log(animal)
-    console.log(servicos)
-    console.log(porte)
-    console.log(especie)
-    console.log(nome)
-    console.log(cpf)
-    console.log(telefone)
-    console.log(data)
-
+    const id = localStorage.getItem("user_id");
     
-    const url = "http://localhost:3000/servico"
+    const url = `http://localhost:3000/servico/${id}`
    await fetch( url,{
         method: "POST",
         headers: {
@@ -48,10 +40,14 @@ async function criando(){
              })
     })
     .then(res => res.json())
-    .then(res => {console.log(res);
+    .then(res => {
+        console.log(res);
+        if(res.mensagemError){
+            alertServico((`${res.mensagemError}`), "error" ,"Tente novamente")
+        }
         const servicos = res.servico
         if(servicos){
-            window.alert("Agendamento realizado com sucesso!!!")
+           
             localStorage.setItem("serv-id",servicos.id)
             localStorage.setItem("serv-animal", servicos.nome_animal)
             localStorage.setItem("serv-servicos", servicos.servicos)
@@ -60,13 +56,27 @@ async function criando(){
             localStorage.setItem("serv-dono", servicos.nome_dono)
             localStorage.setItem("serv-cpf", servicos.cpf)
             localStorage.setItem("serv-telefone", servicos.telefone)
-            localStorage.setItem("serv-data", servicos.data)
-            window.alert("Agendamento realizado com sucesso!!!")
-       
-        }else{
-        window.alert("Erro no agendamento, tente novamente.")
-    }
+            localStorage.setItem("serv-data", servicos.horario)
+            alertServico("Agendado com sucesso", "success")
+            setTimeout(()=> {
+                window.location.href= "http://localhost:4000/perfil"
+            },3000)
+           ;
+            
+        }
        
     })
     
 }
+
+function alertServico(title, icon, text){
+    swal({
+        title: title,
+        text: text,
+        icon: icon,
+        button: "ok!",
+      });
+}
+
+
+

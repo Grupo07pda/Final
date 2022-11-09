@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/agendamento.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  
     <title>Agendamento</title>
 </head>
@@ -33,21 +34,27 @@
                 <form>
                     <input type="text" placeholder="Nome do animal" id="animal" required /><br>
                     <label>Serviço</label><br>
-                    <input type="radio" id="servico" name="servico" value="Banho_tosa" required />Banho e Tosa
-                    <input type="radio"  id="servico" name="servico" value="veterinario" required />Veterinário
-                    <input type="radio" id="servico" name="servico" value="creche" required />Creche <br>
+                    <select name="servico" id="servico">
+                        <option  value="Banho_tosa">Banho e Tosa</option>
+                        <option value="veterinario">Veterinário</option>
+                        <option value="creche">Creche</option>
+                    </select><br>
                     <label>Porte</label><br>
-                    <input type="radio" id="porte" name="porte" value="pequeno" required />Pequeno
-                    <input type="radio"  id="porte" name="porte" value="medio" required />Médio
-                    <input type="radio" id="porte" name="porte" value="grande" required />Grande <br>
+                    <select name="porte" id="porte">
+                        <option  value="pequeno">Pequeno</option>
+                        <option value="medio">Médio</option>
+                        <option value="grande">Grande</option>
+                    </select><br>
                     <label>Espécie</label><br>
-                    <input type="radio" name="especie" id="especie" value="cachorro" required />Cachorro
-                    <input type="radio" name="especie" value=""id="especie" value="gato" required />Gato <br>
+                     <select name="especie" id="especie">
+                        <option  value="cachorro">Cachorro</option>
+                        <option value="gato">Gato</option>
+                    </select><br>
+
                     <input type="text" placeholder="Nome do dono" id="nome" required />
                     <input type="text" placeholder="CPF" id="cpf" required/>
                     <input type="text" placeholder="Telefone" id="telefone" required/>
                     <input type="date" id="data" required/>
-                    
                     <button type="button" onclick="criando()">Agendar</button>
 
                 </form>

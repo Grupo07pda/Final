@@ -62,9 +62,13 @@ body{
     background-color:#ffff;
 }
 
+label{
+    font-size:15px;
+}
+
 .serv{
     border: none;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 60px;
     padding: 8px 0 8px 35px;
     outline: none;
@@ -72,10 +76,8 @@ body{
     background-color:#ffff;
 }
 
-
-input[type=radio]{
-    flex-direction: row;
-    margin-top: 10px;
+select{
+    align-items: center;
 }
 
 button[type="button"] {
@@ -87,7 +89,7 @@ button[type="button"] {
     outline: none;
     padding: 8px 0 8px 15px;
     font-size: 15px;
-    margin-top: 40px;
+    margin-top: 25px;
     cursor: pointer;
 }
 

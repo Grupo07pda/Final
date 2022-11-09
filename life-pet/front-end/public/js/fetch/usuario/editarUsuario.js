@@ -26,25 +26,38 @@ async function editarUsuario(){
     })
     .then(res => res.json())
     .then(res =>{
-        // if(nome !== " "){
-        //     localStorage.removeItem("user_nome")
-        //     localStorage.setItem("user_nome", nome)
-        //     }
 
-        //     if(email !== " "){
-        //     localStorage.removeItem("user_email")
-        //     localStorage.setItem("user_email", email)
-        //     }
+        if(res.mensagemError){
+            alertServico((`${res.mensagemError}`), "error" ,"Tente novamente")
+        }
+
+        if(nome !== " "){
+            localStorage.removeItem("user_nome")
+            localStorage.setItem("user_nome", nome)
+            }
+
+            if(email !== " "){
+            localStorage.removeItem("user_email")
+            localStorage.setItem("user_email", email)
+            }
         console.log(res)
         if (res.usuario) {
+            alertUsuario("Usuário atualizado!!!", "success")
             console.log("Cadastrado!")
-        } else {
-            console.log("Deu erro!")
-        }
+        } 
     })
 
 }
 
+
+function alertUsuario(title, icon, text){
+    swal({
+        title: title,
+        text: text,
+        icon: icon,
+        button: "ok!",
+      })
+}
 
 
 function inicialInput(){
@@ -58,11 +71,10 @@ function inicialInput(){
 
     const emailInput = document.getElementById("edit-email")
     emailInput.setAttribute("value", email)
-
+    
     const senhaInput = document.getElementById("edit-senha")
     senhaInput.setAttribute("value", senha)
 
-    // console.log(nome, email,senha)
 }
 
 document.addEventListener("DOMContentLoaded", () => {

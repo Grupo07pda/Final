@@ -55,4 +55,4 @@ setInterval(()=>{
   }else{
     rolar = true
   }
-},4000)
+})

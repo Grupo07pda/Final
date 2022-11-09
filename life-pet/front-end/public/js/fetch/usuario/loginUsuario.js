@@ -21,17 +21,25 @@ async function login(){
    })
     .then(res => res.json())
     .then(res => {
+        if(res.mensagemError){
+            alertLogin((`${res.mensagemError}`), "error" ,"Tente novamente")
+        }
         const usuarios = res.user
         if(res.usuario){
             window.location.href= "http://localhost:4000/agendamento";
             localStorage.setItem("user_id", usuarios.id)
             localStorage.setItem("user_nome",usuarios.nome)
             localStorage.setItem("user_email", usuarios.email)
-        }else{
-        window.alert("Error: Senha ou email invalidos!!!")
-       
         }
     })
-
-   
 }
+
+function alertLogin(title, icon, text){
+    swal({
+        title: title,
+        text: text,
+        icon: icon,
+        button: "ok!",
+      });
+}
+

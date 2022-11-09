@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Perfil</title>
 </head>
@@ -33,8 +34,7 @@
                 <form>
                     <input class="inputUsuario" type="text" placeholder="nome"id="edit-nome" />
                     <input class="inputUsuario" type="text" placeholder="email" id="edit-email" />
-                    <input class="inputUsuario" type="text" placeholder="senha" id="edit-senha"/>
-                    
+                    <input class="inputUsuario" type="text" placeholder="senha" id="edit-senha">
                     <button type="button" onclick="editarUsuario()">Editar</button>
 
                 </form>
@@ -57,22 +57,16 @@
                 <form>
                     <input  class="serv" type="text" placeholder="Nome do animal" id="edit-animal"  /><br>
                     <label>Serviço</label><br>
-                    <input type="radio" id="edit-servico" name="servico" value="Banho_tosa"/>Banho e Tosa
-                    <input type="radio"  id="edit-servico" name="servico" value="veterinario"/>Veterinário
-                    <input type="radio" id="edit-servico" name="servico" value="creche"/>Creche <br>
+                    <input class="serv" type="text" id="edit-servico" name="servico" /> <br>
                     <label>Porte</label><br>
-                    <input type="radio" id="edit-porte" name="porte" value="pequeno"/>Pequeno
-                    <input type="radio"  id="edit-porte" name="porte" value="medio"/>Médio
-                    <input type="radio" id="edit-porte" name="porte" value="grande"/>Grande <br>
+                    <input class="serv" type="text" id="edit-porte" name="porte" /> <br> 
                     <label>Espécie</label><br>
-                    <input type="radio" name="especie" id="edit-especie" value="cachorro"/>Cachorro
-                    <input type="radio" name="especie" id="edit-especie" value="gato"/>Gato <br>
-                    <input  class="serv" type="text" placeholder="Nome do dono" id="edit-dono"/>
+                    <input class="serv" type="text" name="especie" id="edit-especie" /> <br> 
+                    <input class="serv"  class="serv" type="text" placeholder="Nome do dono" id="edit-dono"/>
                     <input  class="serv" type="text" placeholder="CPF" id="edit-cpf" required/>
                     <input  class="serv" type="text" placeholder="Telefone" id="edit-telefone"/>
                     <input  class="serv" type="date" id="edit-data" />
-                    
-                    <button  type="button" onclick="editarServico()">Agendar</button>
+                    <button  type="button" onclick="editarServico()">Editar</button>
 
                 </form>
 

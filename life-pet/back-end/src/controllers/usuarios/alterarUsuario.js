@@ -1,4 +1,6 @@
 const alterar = async (req,res)=>{
+
+  try{
     let usuario = require('../../models/usuario');
     const id = req.params.id;
     const { nome, email, senha } = req.body;
@@ -9,9 +11,11 @@ const alterar = async (req,res)=>{
       senha: senha || pessoa.senha,
       logado: pessoa.logado
     }, { where: { id: id }});
-    console.log(nome)
     const usuarioAtualizado = await usuario.findByPk(id);
     return res.status(200).json({usuario: usuarioAtualizado});
+  }catch(error){
+    res.status(500).json({mensagemError: error})
+  }
 }
 
 module.exports = alterar;
